@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% block nav %}
+        <ul id="nav">
+            <li>{% block nav-home %}<h2><a href="../admin/">Admin</a></h2>{% endblock %}</li>
+            <li>{% block nav-about %}<h2><a href="{% url 'my_view' %}">Home</a></h2>{% endblock %}</li>
+        </ul>
+    {% endblock %}
+</head>
+<body>
+<table width="25%" align="center" border="visible">
+    <tr>
+        <th>Sport </th>
+        <th colspan="{{ area_count }}">Area </th>
+        <th colspan="{{ equipment_count }}">Equipment</th>
+    </tr>
+    <tr>
+
+    </tr>
+    {% if sports %}
+        {% for sport in sports %}
+            <tr>
+                <td>{{ sport.sport_name }}</td>
+
+                {% for area in sport.area_set.all %}
+                    <td>{{ area }}</td>
+                {% endfor %}
+                {% for equipment in sport.equipment_set.all %}
+                    <td>{{ equipment }}</td>
+                {% endfor %}
+
+            </tr>
+        {% endfor %}
+    {% else %}
+        <p>No sports are available.</p>
+    {% endif %}
+</table>
+</body>
+</html>

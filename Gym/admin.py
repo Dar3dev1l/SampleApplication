@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Sports, Area, Equipment
-admin.site.register(Sports)
+from .models import Sport, Area, Equipment
+admin.site.register(Sport)
 admin.site.register(Area)
 admin.site.register(Equipment)
 
