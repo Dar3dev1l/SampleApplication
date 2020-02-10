@@ -7,7 +7,7 @@ class Sport(models.Model):
     sport_name = models.CharField(max_length=50,null=True)
     max_players = models.IntegerField(default=0)
     min_players = models.IntegerField(default=0)
-    team_sport = models.BooleanField(default=False)
+    team_sport = models.BooleanField(default=True)
 
     def __str__(self):
         return self.sport_name
