@@ -8,6 +8,7 @@ def index(request):
     return HttpResponse("Hello, You're at the Gym index.")
 
 
+# noinspection PyInterpreter,PyInterpreter
 def my_view(request):
     sports = Sport.objects.all()
     area_count = 1
@@ -21,6 +22,6 @@ def my_view(request):
         'area_count': area_count,
         'equipment_count': equipment_count
     }
-
+    #output = ", ".join([obj.sport_name for obj in sports])
     return HttpResponse(template.render(context, request))
 
