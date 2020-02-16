@@ -20,4 +20,6 @@ from django.conf.urls import include, url
 urlpatterns = [
     url(r'^Gym/', include('Gym.urls')),
     path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/', include('Gym.api.urls'))
 ]
